@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/loginbk"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/lgt_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="智能家居"
+        android:textColor="#00C2D4"
+        android:textSize="40sp"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/lga_1"
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_height="40dp"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:hint="用户名"
+        android:maxLines="1"
+        android:padding="5dp"
+        />
+    <EditText
+        android:id="@+id/lgp_1"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="40dp"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:hint="密码"
+        android:maxLines="1"
+        android:padding="5dp"
+        android:inputType="textPassword"
+        />
+    <Button
+        android:id="@+id/lgb_1"
+        android:layout_marginTop="20dp"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="登   录"
+        android:textSize="16sp"
+        />
+
+
+</LinearLayout>
