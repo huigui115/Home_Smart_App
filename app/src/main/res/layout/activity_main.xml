@@ -27,6 +27,7 @@
         android:textSize="16sp"
         android:textColor="@color/black"
         android:hint="用户名"
+        android:text="ly"
         android:maxLines="1"
         android:padding="5dp"
         />
@@ -38,6 +39,7 @@
         android:textSize="16sp"
         android:textColor="@color/black"
         android:hint="密码"
+        android:text="1976"
         android:maxLines="1"
         android:padding="5dp"
         android:inputType="textPassword"
