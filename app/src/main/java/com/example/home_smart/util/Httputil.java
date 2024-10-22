@@ -11,7 +11,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class Httputil {
-    public static String localhost = "http://10.27.81.191:9090";
+    public static String localhost = "http://10.126.4.211:9090";
     public static String sendGetRequest(String urlString) throws Exception {
         URL url = new URL(urlString);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -38,7 +38,7 @@ public class Httputil {
         }
     }
 
-    public static void sendPostRequest(String urlString, String jsonInputString) throws Exception {
+    public static String sendPostRequest(String urlString, String jsonInputString) throws Exception {
         HttpURLConnection connection = getHttpURLConnection(urlString, jsonInputString, "POST");
 
         int responseCode = connection.getResponseCode();
@@ -55,8 +55,10 @@ public class Httputil {
             in.close();
 
             System.out.println(response.toString());
+            return response.toString();
         } else {
             System.out.println("POST request not worked");
+            return null;
         }
     }
 
@@ -84,8 +86,8 @@ public class Httputil {
         }
     }
 
-    private static @NonNull HttpURLConnection getHttpURLConnection
-            (String urlString, String jsonInputString, String requestMethod) throws IOException {
+    private static HttpURLConnection getHttpURLConnection
+            (@NonNull String urlString, String jsonInputString, String requestMethod) throws IOException {
         URL url = new URL(urlString);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod(requestMethod);
@@ -93,6 +95,9 @@ public class Httputil {
         connection.setRequestProperty("Accept", "application/json");
         connection.setDoOutput(true);
 
+        if(jsonInputString == null) {
+            return connection;
+        }
         try (OutputStream os = connection.getOutputStream()) {
             byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
             os.write(input, 0, input.length);
