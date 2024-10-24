@@ -11,7 +11,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class Httputil {
-    public static String localhost = "http://10.126.4.211:9090";
+    public static String localhost = "http://192.168.223.210:9090";
     public static String sendGetRequest(String urlString) throws Exception {
         URL url = new URL(urlString);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();

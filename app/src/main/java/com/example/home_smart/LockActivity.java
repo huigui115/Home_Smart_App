@@ -29,6 +29,7 @@ public class LockActivity extends AppCompatActivity {
     private LinearLayout lockContainer;
     private View selectedItem = null;
     private List<Lock> lock_list = null;
+    private Button btnback;
 
     @SuppressLint({"WrongViewCast", "SetTextI18n"})
     @Override
@@ -38,7 +39,7 @@ public class LockActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lock);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            //v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
@@ -46,6 +47,7 @@ public class LockActivity extends AppCompatActivity {
         unlockbtn = findViewById(R.id.btn_lock_open);
         freshbtn = findViewById(R.id.btn_search_locks);
         lockContainer = findViewById(R.id.lock_list_container);
+        btnback = findViewById(R.id.btn_back);
         freshbtn.setOnClickListener(v -> {
             // 处理btnAnother的点击事件
             new Thread(() -> {
@@ -57,12 +59,12 @@ public class LockActivity extends AppCompatActivity {
                         lockContainer.removeAllViews();
                         LayoutInflater inflater = LayoutInflater.from(this);
                         for(Lock lock : lock_list) {
-                            View item = inflater.inflate(R.layout.lock_item, null);
+                            View item = inflater.inflate(R.layout.lock_item, lockContainer, false);
                             TextView lockname = item.findViewById(R.id.lock_name);
                             TextView state = item.findViewById(R.id.lock_state);
                             TextView lockid = item.findViewById(R.id.lock_id);
                             lockname.setText(lock.getLockName());
-                            state.setText(lock.isStatus() ? "Locked" : "Unlocked");
+                            state.setText(lock.isStatus() ? "已锁" : "未锁");
                             lockid.setText(lock.getId().toString());
                             item.setOnClickListener(v1 -> {
                                 if (selectedItem != null) {
@@ -96,7 +98,7 @@ public class LockActivity extends AppCompatActivity {
                     if(lock.isStatus()) {
                         runOnUiThread(() -> {
                             TextView state = selectedItem.findViewById(R.id.lock_state);
-                            state.setText("Locked");
+                            state.setText("已锁");
                         });
                     }
 
@@ -121,7 +123,7 @@ public class LockActivity extends AppCompatActivity {
                     if(!lock.isStatus()) {
                         runOnUiThread(() -> {
                             TextView state = selectedItem.findViewById(R.id.lock_state);
-                            state.setText("Unlocked");
+                            state.setText("未锁");
                         });
                     }
 
@@ -130,5 +132,9 @@ public class LockActivity extends AppCompatActivity {
                 }
             }).start();
         });
+        btnback.setOnClickListener(v -> {
+            finish();
+        });
+        freshbtn.callOnClick();
     }
 }
