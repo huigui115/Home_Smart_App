@@ -48,7 +48,10 @@
     <Button
         android:id="@+id/btn_search_locks"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="59dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="150dp"
+
         android:text="刷新" />
 
 
