@@ -6,24 +6,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".LockActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:padding="20dp"
-        android:text="门锁列表"
-        android:textColor="#000000"
-        android:textSize="30dp" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="返回" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="门锁列表"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+    </LinearLayout>
+
 
     <ScrollView
         android:id="@+id/lock_list"
         android:layout_width="match_parent"
-        android:layout_height="384dp"
+        android:layout_height="514dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
+
         <LinearLayout
             android:id="@+id/lock_list_container"
             android:layout_width="match_parent"
@@ -33,25 +47,33 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/btn_lock_open"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="开锁" />
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
 
-    <Button
-        android:id="@+id/btn_lock_close"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="关锁" />
+        <Button
+            android:id="@+id/btn_lock_open"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="开锁" />
+
+        <Button
+            android:id="@+id/btn_lock_close"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="关锁" />
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btn_search_locks"
         android:layout_width="match_parent"
-        android:layout_height="59dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="150dp"
-
         android:text="刷新" />
 
 
