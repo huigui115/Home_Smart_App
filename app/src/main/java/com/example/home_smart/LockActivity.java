@@ -45,9 +45,9 @@ public class LockActivity extends AppCompatActivity {
 
         lockbtn = findViewById(R.id.btn_lock_close);
         unlockbtn = findViewById(R.id.btn_lock_open);
-        freshbtn = findViewById(R.id.btn_search_locks);
+        freshbtn = findViewById(R.id.btn_lockpage_search_locks);
         lockContainer = findViewById(R.id.lock_list_container);
-        btnback = findViewById(R.id.btn_back);
+        btnback = findViewById(R.id.btn_lockpage_back);
         freshbtn.setOnClickListener(v -> {
             // 处理btnAnother的点击事件
             new Thread(() -> {
